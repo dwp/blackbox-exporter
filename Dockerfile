@@ -13,8 +13,9 @@ COPY entrypoint.sh /bin/entrypoint.sh
 RUN curl -k -LSs --output /tmp/blackbox-exporter.tz.gz \
     https://github.com/prometheus/blackbox_exporter/releases/download/v${BLACKBOX_VERSION}/blackbox_exporter-${BLACKBOX_VERSION}.linux-amd64.tar.gz && \
     tar -C /tmp --strip-components=1 -zoxf /tmp/blackbox-exporter.tz.gz && \
-    rm -f /tmp/blackbox_exporter.tz.gz && \
+    rm -f /tmp/blackbox-exporter.tz.gz && \
     mv /tmp/blackbox_exporter /bin/ && \
+    mkdir /blackbox-exporter && \
     chmod 0755 /bin/entrypoint.sh && \
     chown -R nobody:nogroup /blackbox-exporter
 
