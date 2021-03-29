@@ -1,44 +1,44 @@
 resources:
-  - name: dwpdigital-dataworks-repo-template-docker
+  - name: dwpdigital-blackbox-exporter
     type: registry-image-resource
     source:
-      repository: dwpdigital/dataworks-repo-template-docker
+      repository: dwpdigital/blackbox-exporter
     check_every: 5m
 
-  - name: ecr-dwpdigital-dataworks-repo-template-docker-dev
+  - name: ecr-dwpdigital-blackbox-exporter-dev
     .: (( inject meta.resources.ecr-resource ))
     source:
-      repository: "dataworks-repo-template-docker"
+      repository: "blackbox-exporter"
 
-  - name: ecr-dwpdigital-dataworks-repo-template-docker
+  - name: ecr-dwpdigital-blackbox-exporter
     .: (( inject meta.resources.ecr-resource ))
     source:
-      repository: "dataworks-repo-template-docker"
+      repository: "blackbox-exporter"
       aws_role_arn: arn:aws:iam::((dataworks.aws_management_acc)):role/ci
 
 jobs:
-  - name: mirror-dwpdigital-dataworks-repo-template-docker-dev
-    serial_groups: [dataworks-repo-template-docker]
+  - name: mirror-dwpdigital-blackbox-exporter-dev
+    serial_groups: [blackbox-exporter]
     plan:
-      - get: dwpdigital-dataworks-repo-template-docker
+      - get: dwpdigital-blackbox-exporter
         trigger: true
         params:
           format: oci
         attempts: 3
-      - put: ecr-dwpdigital-dataworks-repo-template-docker-dev
+      - put: ecr-dwpdigital-blackbox-exporter-dev
         params:
-          image: "dwpdigital-dataworks-repo-template-docker/image.tar"
+          image: "dwpdigital-blackbox-exporter/image.tar"
         attempts: 3
 
-  - name: mirror-dwpdigital-dataworks-repo-template-docker
-    serial_groups: [dataworks-repo-template-docker]
+  - name: mirror-dwpdigital-blackbox-exporter
+    serial_groups: [blackbox-exporter]
     plan:
-      - get: dwpdigital-dataworks-repo-template-docker
+      - get: dwpdigital-blackbox-exporter
         trigger: true
         params:
           format: oci
         attempts: 3
-      - put: ecr-dwpdigital-dataworks-repo-template-docker
+      - put: ecr-dwpdigital-blackbox-exporter
         params:
-          image: "dwpdigital-dataworks-repo-template-docker/image.tar"
+          image: "dwpdigital-blackbox-exporter/image.tar"
         attempts: 3
