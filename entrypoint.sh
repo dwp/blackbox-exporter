@@ -45,7 +45,7 @@ else
     echo "INFO: Using attached IAM roles/instance profiles to authenticate with S3 as no AWS_ACCESS_KEY_ID or AWS_SECRET_ACCESS_KEY have been provided"
 fi
 
-if [ -f "/blackbox/blackbox-${BLACKBOX_ROLE}.yml" ]; then
+if [ -f "/blackbox/blackbox.yml" ]; then
     echo "Config mounted as Volume from S3"
 else
     echo "INFO: Copying blackbox-exporter configuration file(s) from ${S3_URI} to /blackbox-exporter..."
@@ -58,4 +58,4 @@ fi
 
 echo "INFO: Starting blackbox-exporter..."
 exec /bin/blackbox_exporter \
---config.file=/blackbox-exporter/blackbox-${BLACKBOX_ROLE}.yml
+--config.file=/blackbox-exporter/blackbox.yml
