@@ -58,4 +58,5 @@ fi
 
 echo "INFO: Starting blackbox-exporter..."
 exec /bin/blackbox_exporter \
---config.file=/blackbox-exporter/blackbox.yml
+--config.file=/blackbox-exporter/blackbox.yml \
+--log.level=${LOG_LEVEL}
