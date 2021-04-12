@@ -56,7 +56,7 @@ if [ !"${LOG_LEVEL}" ]; then
     LOG_LEVEL="info"
 fi
 
-echo "INFO: Starting blackbox-exporter..."
+echo "INFO: Starting blackbox-exporter with log.level=${LOG_LEVEL}..."
 exec /bin/blackbox_exporter \
 --config.file=/blackbox-exporter/blackbox.yml \
 --log.level=${LOG_LEVEL}
