@@ -52,7 +52,7 @@ else
     aws ${PROFILE_OPTION} s3 sync ${S3_URI}/ /blackbox-exporter
 fi
 
-if [ !"${LOG_LEVEL}" ]; then
+if [ -z "${LOG_LEVEL}" ]; then
     LOG_LEVEL="info"
 fi
 
