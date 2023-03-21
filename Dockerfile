@@ -1,6 +1,6 @@
 FROM alpine:3.13
 
-ARG BLACKBOX_VERSION=0.18.0
+ARG BLACKBOX_VERSION=0.23.0
 
 # Dependencies
 RUN apk add --update --no-cache \
