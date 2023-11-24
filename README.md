@@ -1,3 +1,5 @@
+# DO NOT USE THIS REPO - MIGRATED TO GITLAB
+
 # blackbox-exporter
 
 ## blackbox_exporter
