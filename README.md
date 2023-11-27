@@ -1,3 +1,5 @@
+# DO NOT USE THIS REPO - MIGRATED TO GITLAB
+
 # blackbox-exporter
 
 ## blackbox_exporter
@@ -48,7 +50,6 @@ Note that the TLS and basic authentication settings affect all HTTP endpoints:
 ### Local Build
 
     make
-
 
 ### Building with Docker
 
