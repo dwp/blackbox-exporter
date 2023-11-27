@@ -51,7 +51,6 @@ Note that the TLS and basic authentication settings affect all HTTP endpoints:
 
     make
 
-
 ### Building with Docker
 
 After a successful local build:
